@@ -4,7 +4,6 @@ import bodyParser from 'body-parser';
 
 import book from './routes/books';
 
-let port = 80;
 let app = express();
 
 //parse application/json and look for raw text
@@ -26,7 +25,9 @@ app
   .delete(book.deleteBook)
   .put(book.updateBook);
 
-app.listen(port);
-console.log('Listening on port ' + port);
+var port = process.env.PORT || 80;
+app.listen(port,function () {
+  console.log('Application running on port ' + port)
+});
 
 module.exports = app; // for testing
