@@ -97,3 +97,44 @@ describe('Mocked database', () => {
             });
     });
 });
+describe('Simulate answer', () => {
+    beforeEach(() => {
+        nock.cleanAll()
+    })
+    it('get route expect code 200, and books object is an array', done => {
+        let books = { books: [] };
+        nock('http://localhost:8080').get('/book').reply(200, books)
+        chai.request('http://localhost:8080')
+            .get('/book')
+            .end((err, res) => {
+                if (err) console.log(err);
+                expect(res).to.have.status(200);
+                expect(res.body.books).to.be.a('array');
+                done();
+            });
+
+    });
+    it('post route expect code 200, and message is " book successfully added" ', done => {
+
+        let message = {
+            message: 'book successfully added'
+        }
+        nock('http://localhost:8080').post('/book').reply(200, message)
+        chai.request('http://localhost:8080')
+            .post('/book')
+            .send(
+                {
+                    id: '0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9',
+                    title: 'Coco raconte Channel 2',
+                    years: 1990,
+                    pages: 400
+                }
+            )
+            .end((err, res) => {
+                if (err) console.log(err);
+                expect(res).to.have.status(200);
+                expect(res.body.message).is.equal('book successfully added');
+                done();
+            });
+    });
+})

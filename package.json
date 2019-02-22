@@ -30,6 +30,7 @@
   },
   "scripts": {
     "start": "nodemon --exec babel-node src/server.js",
-    "test": "mocha ./src/test --timeout 10000  --compilers js:@babel/register --reporter mocha-junit-reporter"
+    "test": "mocha ./src/test --timeout 10000  --compilers js:@babel/register",
+    "newtest": "mocha ./src/test --timeout 10000  --compilers js:@babel/register --reporter mocha-junit-reporter"
   }
 }
