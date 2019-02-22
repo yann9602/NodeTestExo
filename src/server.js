@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 
 import book from './routes/books';
 
-let port = 8080;
+let port = 80;
 let app = express();
 
 //parse application/json and look for raw text
