@@ -25,10 +25,11 @@
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
     "mocha": "^2.4.5",
+    "mocha-junit-reporter": "^1.18.0",
     "nodemon": "^1.18.10"
   },
   "scripts": {
     "start": "nodemon --exec babel-node src/server.js",
-    "test": "mocha ./src/test --timeout 10000  --compilers js:@babel/register"
+    "test": "mocha ./src/test --timeout 10000  --compilers js:@babel/register --reporter mocha-junit-reporter"
   }
 }
