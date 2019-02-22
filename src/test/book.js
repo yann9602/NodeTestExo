@@ -22,7 +22,7 @@ describe('Empty Database GET and POST route on book', () => {
             .get('/book')
             .end((err, res) => {
                 if (err) console.log(err);
-                expect(res).to.have.status(400);
+                expect(res).to.have.status(200);
                 expect(res.body).to.be.a('object');
                 expect(res.body.books).to.be.a('array');
                 expect(res.body.books.length).to.equal(0);
@@ -67,5 +67,33 @@ describe('Mocked database', () => {
                 done();
             });
     });
-
+    it('Delete route expect code 200, and showing in message key on body "book successfully deleted"', done => {
+        chai
+            .request(server)
+            .delete('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
+            .end((err, res) => {
+                if (err) console.log(err);
+                expect(res).to.have.status(200);
+                expect(res.body.message).is.equal('book successfully deleted');
+                done();
+            });
+    });
+    it('get route expect code 200, and showing in message key on body "book fetched" ...', done => {
+        chai
+            .request(server)
+            .get('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
+            .end((err, res) => {
+                if (err) console.log(err);
+                expect(res).to.have.status(200);
+                expect(res.body.message).is.equal('book fetched');
+                expect(res.body.book).to.be.a('object');
+                expect(res.body.book.title).to.be.a('string');
+                expect(res.body.book.id).is.equal('0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9');
+                expect(res.body.book.years).to.be.a('number');
+                expect(res.body.book.years).is.equal(1990);
+                expect(res.body.book.pages).to.be.a('number');
+                expect(res.body.book.pages).is.equal(400);
+                done();
+            });
+    });
 });
