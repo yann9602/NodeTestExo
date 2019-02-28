@@ -8,12 +8,12 @@ Un environmement Ubuntu 16.04 est initialisé  pour lancer la pipeline suivante 
 
 A la fin de la pipeline un dossier avec le build est créer, il est zip et automatiquement enregistrer ce qui permet de garder tous les builds packagés.
 
-![](https://imgur.com/5t2IMhf)
+![](./readmeImage/1.png)
 
-![](https://imgur.com/5t2IMhf)
+![](./readmeImage/2.png)
 
-![](https://imgur.com/5t2IMhf)
+![](./readmeImage/3.png)
 
 Pour finir automatiquement le package est déployé sur une application azure
 
-![](https://imgur.com/PFgkMo6)
+![](./readmeImage/4.png)
