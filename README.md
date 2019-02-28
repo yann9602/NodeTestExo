@@ -1,6 +1,8 @@
 # NodeTestExo
 Projet de test sur Node
 
+Equipe : 
+
 Nolan VIEIRA
 Kevin HARISMENDY
 Yann AVONDO
