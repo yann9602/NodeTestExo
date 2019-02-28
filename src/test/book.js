@@ -33,6 +33,12 @@ describe('Empty Database GET and POST route on book', () => {
         chai
             .request(server)
             .post('/book')
+            .send({
+                "id": "55b7d315-1a5f-4b13-a665-c382a6c71756",
+                "title": "Oui-Oui contre Dominique Strauss-Kahn",
+                "years": "2015",
+                "pages": "650"
+            })
             .end((err, res) => {
                 if (err) console.log(err);
                 expect(res).to.have.status(200);
