@@ -25,7 +25,7 @@ app
   .delete(book.deleteBook)
   .put(book.updateBook);
 
-var port = process.env.PORT || 80;
+var port = 80;
 app.listen(port,function () {
   console.log('Application running on port ' + port)
 });
