@@ -66,6 +66,9 @@ describe('Mocked database', () => {
         chai
             .request(server)
             .put('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
+            .send({
+                "title": "Salut les z'amis"
+            })
             .end((err, res) => {
                 if (err) console.log(err);
                 expect(res).to.have.status(200);
@@ -143,4 +146,43 @@ describe('Simulate answer', () => {
                 done();
             });
     });
+    it('post route expect code 200, and message is " book successfully added" ', done => {
+
+        let message = {
+            message: 'book successfully updated'
+        }
+        nock('http://localhost:8080').put('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9').reply(200, message)
+        chai.request('http://localhost:8080')
+            .put('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
+            .send(
+                {
+                    title: 'Coco raconte Channel 3'
+                }
+            )
+            .end((err, res) => {
+                if (err) console.log(err);
+                expect(res).to.have.status(200);
+                expect(res.body.message).is.equal('book successfully updated');
+                done();
+            });
+    });
+    it(' delete route expect code 200 and send an message"book successfully deleted"',done=>{
+        let message = {
+            message: 'book successfully deleted'
+        }
+        nock("http://localhost:8080")
+        .delete('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
+        .reply(200,message)
+            chai
+            .request('http://localhost:8080')
+            .delete('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
+            .end((err, res) => {
+                if (err) console.log(err);
+                expect(res).to.have.status(200);
+                expect(res.body).to.be.a('object');
+                expect(res.body.message).to.be.a('string');
+                expect(res.body.message).to.equal('book successfully deleted');
+                done();
+            });
+    })
 })
