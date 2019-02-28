@@ -1,4 +1,9 @@
 # NodeTestExo
+Projet de test sur Node
+
+Nolan VIEIRA
+Kevin HARISMENDY
+Yann AVONDO
 
 Tout les tests sont éxécuter sur Azure devOps avec un hook direct sur la master de ce dépot github
 
