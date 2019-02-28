@@ -166,23 +166,105 @@ describe('Simulate answer', () => {
                 done();
             });
     });
-    it(' delete route expect code 200 and send an message"book successfully deleted"',done=>{
+    it(' delete route expect code 200 and send an message"book successfully deleted"', done => {
         let message = {
             message: 'book successfully deleted'
         }
         nock("http://localhost:8080")
-        .delete('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
-        .reply(200,message)
-            chai
+            .delete('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
+            .reply(200, message)
+        chai
             .request('http://localhost:8080')
             .delete('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
             .end((err, res) => {
                 if (err) console.log(err);
                 expect(res).to.have.status(200);
-                expect(res.body).to.be.a('object');
-                expect(res.body.message).to.be.a('string');
                 expect(res.body.message).to.equal('book successfully deleted');
                 done();
             });
     })
 })
+describe('Simulate bad answer', () => {
+    beforeEach(() => {
+        nock.cleanAll()
+    })
+    let message = {
+        message: 'error fetching books'
+    }
+    it('route get books expect 400 and send an message "error fetching book"', done => {
+        nock("http://localhost:8080")
+            .get('/book')
+            .reply(400, message)
+        chai
+            .request('http://localhost:8080')
+            .get('/book')
+            .end((err, res) => {
+                if (err) console.log(err);
+                expect(res).to.have.status(400);
+                expect(res.body.message).to.equal('error fetching books');
+                done();
+            });
+    });
+    it('post route expect http code 400 and send an message "error adding the book"', done => {
+        let message = {
+            message: 'error adding the book'
+        }
+        nock("http://localhost:8080")
+            .post('/book')
+            .reply(400, message)
+        chai
+            .request('http://localhost:8080')
+            .post('/book')
+            .send({
+                "id": "55b7d315-1a5f-4b13-a665-c382a6c71756",
+                "title": "Oui-Oui contre Dominique Strauss-Kahn",
+                "years": "2010",
+                "pages": "50"
+            })
+            .end((err, res) => {
+                if (err) console.log(err);
+                expect(res).to.have.status(400);
+                expect(res.body.message).to.equal('error adding the book');
+                done();
+            });
+    })
+    it('put route expect status 400 and send an message"error updating the book"',done=>{
+        let message = {
+            message: 'error updating the book'
+        }
+        nock("http://localhost:8080")
+        .put('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
+        .reply(400,message)
+            chai
+            .request('http://localhost:8080')
+            .put('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
+            .send({
+                "pages": "780"
+            })
+            .end((err, res) => {
+                if (err) console.log(err);
+                expect(res).to.have.status(400);
+                expect(res.body.message).to.equal('error updating the book');
+                done();
+            });
+    });
+    it('delete route expect status 400 and send an message"error deleting the book"',done=>{
+        let message = {
+            message: 'error deleting the book'
+        }
+        nock("http://localhost:8080")
+        .delete('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
+        .reply(400,message)
+            chai
+            .request('http://localhost:8080')
+            .delete('/book/0db0b43e-dddb-47ad-9b4a-e5fe9ec7c2a9')
+            .end((err, res) => {
+                if (err) console.log(err);
+                expect(res).to.have.status(400);
+                expect(res.body.message).to.equal('error deleting the book');
+                done();
+            });
+    });
+
+
+});

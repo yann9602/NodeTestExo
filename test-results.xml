@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="0.075" tests="7" failures="0">
-  <testsuite name="Root Suite" timestamp="2019-02-22T15:26:24" tests="0" failures="0" time="0">
+<testsuites name="Mocha Tests" time="0.104" tests="9" failures="0">
+  <testsuite name="Root Suite" timestamp="2019-02-28T08:38:23" tests="0" failures="0" time="0">
   </testsuite>
-  <testsuite name="Empty Database GET and POST route on book" timestamp="2019-02-22T15:26:24" tests="2" file="C:\Users\yann9\source\repos\NodeTestExo\src\test\book.js" failures="0" time="0.041999999999999996">
-    <testcase name="Empty Database GET and POST route on book GET route expect code 200, expect return a 0 lenght array" time="0.031" classname="GET route expect code 200, expect return a 0 lenght array">
+  <testsuite name="Empty Database GET and POST route on book" timestamp="2019-02-28T08:38:23" tests="2" file="C:\Users\yann9\source\repos\NodeTestExo\src\test\book.js" failures="0" time="0.069">
+    <testcase name="Empty Database GET and POST route on book GET route expect code 200, expect return a 0 lenght array" time="0.034" classname="GET route expect code 200, expect return a 0 lenght array">
     </testcase>
-    <testcase name="Empty Database GET and POST route on book Post route expect code 200, and showing in message key on body &quot;book successfully added&quot;" time="0.011" classname="Post route expect code 200, and showing in message key on body &quot;book successfully added&quot;">
-    </testcase>
-  </testsuite>
-  <testsuite name="Mocked database" timestamp="2019-02-22T15:26:24" tests="3" file="C:\Users\yann9\source\repos\NodeTestExo\src\test\book.js" failures="0" time="0.023">
-    <testcase name="Mocked database Put route expect code 200, and showing in message key on body &quot;book successfully updated&quot;" time="0.007" classname="Put route expect code 200, and showing in message key on body &quot;book successfully updated&quot;">
-    </testcase>
-    <testcase name="Mocked database Delete route expect code 200, and showing in message key on body &quot;book successfully deleted&quot;" time="0.007" classname="Delete route expect code 200, and showing in message key on body &quot;book successfully deleted&quot;">
-    </testcase>
-    <testcase name="Mocked database get route expect code 200, and showing in message key on body &quot;book fetched&quot; ..." time="0.009" classname="get route expect code 200, and showing in message key on body &quot;book fetched&quot; ...">
+    <testcase name="Empty Database GET and POST route on book Post route expect code 200, and showing in message key on body &quot;book successfully added&quot;" time="0.035" classname="Post route expect code 200, and showing in message key on body &quot;book successfully added&quot;">
     </testcase>
   </testsuite>
-  <testsuite name="Simulate answer" timestamp="2019-02-22T15:26:24" tests="2" file="C:\Users\yann9\source\repos\NodeTestExo\src\test\book.js" failures="0" time="0.01">
-    <testcase name="Simulate answer get route expect code 200, and books object is an array" time="0.008" classname="get route expect code 200, and books object is an array">
+  <testsuite name="Mocked database" timestamp="2019-02-28T08:38:23" tests="3" file="C:\Users\yann9\source\repos\NodeTestExo\src\test\book.js" failures="0" time="0.024">
+    <testcase name="Mocked database Put route expect code 200, and showing in message key on body &quot;book successfully updated&quot;" time="0.01" classname="Put route expect code 200, and showing in message key on body &quot;book successfully updated&quot;">
+    </testcase>
+    <testcase name="Mocked database Delete route expect code 200, and showing in message key on body &quot;book successfully deleted&quot;" time="0.006" classname="Delete route expect code 200, and showing in message key on body &quot;book successfully deleted&quot;">
+    </testcase>
+    <testcase name="Mocked database get route expect code 200, and showing in message key on body &quot;book fetched&quot; ..." time="0.008" classname="get route expect code 200, and showing in message key on body &quot;book fetched&quot; ...">
+    </testcase>
+  </testsuite>
+  <testsuite name="Simulate answer" timestamp="2019-02-28T08:38:23" tests="4" file="C:\Users\yann9\source\repos\NodeTestExo\src\test\book.js" failures="0" time="0.011">
+    <testcase name="Simulate answer get route expect code 200, and books object is an array" time="0.006" classname="get route expect code 200, and books object is an array">
     </testcase>
     <testcase name="Simulate answer post route expect code 200, and message is &quot; book successfully added&quot; " time="0.002" classname="post route expect code 200, and message is &quot; book successfully added&quot; ">
+    </testcase>
+    <testcase name="Simulate answer post route expect code 200, and message is &quot; book successfully added&quot; " time="0.002" classname="post route expect code 200, and message is &quot; book successfully added&quot; ">
+    </testcase>
+    <testcase name="Simulate answer  delete route expect code 200 and send an message&quot;book successfully deleted&quot;" time="0.001" classname=" delete route expect code 200 and send an message&quot;book successfully deleted&quot;">
     </testcase>
   </testsuite>
 </testsuites>
